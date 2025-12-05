@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E.N. Rao Consulting | Decades of Public Works Excellence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0d9488;
+            /* Tailwind Teal 700 - A professional, grounding color */
+            --text-color: #1f2937;
+            /* Gray 800 */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            /* Off-white background */
+            color: var(--text-color);
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Tailwind class for 4x2 matrix (4 columns on large screens for expertise pillars) */
+        @media (min-width: 1024px) {
+            .lg-grid-cols-4 {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+
+        /* Custom Tailwind class for 3x3 matrix (3 columns on large screens for overview) */
+        @media (min-width: 1024px) {
+            .lg-grid-cols-3 {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        /* Apple-style floating header */
+        .apple-nav {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .hero-text-gradient {
+            /* Adjusted size */
+            font-size: 3.75rem;
+            /* Equivalent to text-6xl */
+            line-height: 1;
+            background: linear-gradient(180deg, var(--text-color), #4b5563);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Styling for the new large centered title */
+        .main-consulting-title {
+            font-size: 2.25rem;
+            /* Custom medium big size */
+            font-weight: 800;
+            /* Extra bold */
+            letter-spacing: 0.05em;
+            color: var(--text-color);
+        }
+
+        /* ENHANCEMENT: Added border/shadow for better visibility */
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e5e7eb;
+            /* Light gray border */
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ENHANCED Glassmorphism styles for the 9 Category Tiles */
+        .phase-tile {
+            position: relative;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(245, 245, 245, 0.7));
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            /* White internal border */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08), inset 0 2px 0 rgba(255, 255, 255, 0.9);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 140px;
+            z-index: 10;
+            text-align: center;
+            /* ADDED BORDER FOR VISIBILITY AGAINST WHITE BACKGROUND */
+            outline: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .phase-tile:hover {
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15), inset 0 2px 0 rgba(255, 255, 255, 1);
+            transform: scale(1.05);
+            outline: 2px solid var(--primary-color);
+            /* Highlight on hover */
+        }
+
+        .tile-icon {
+            opacity: 1;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+        }
+
+        .bg-circle-1,
+        .bg-circle-2 {
+            position: absolute;
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.3;
+            filter: blur(50px);
+        }
+
+        .bg-circle-1 {
+            width: 180px;
+            height: 180px;
+            top: -60px;
+            left: -60px;
+        }
+
+        .bg-circle-2 {
+            width: 130px;
+            height: 130px;
+            bottom: -40px;
+            right: -40px;
+        }
+
+        /* NEW Style for detailed service cards - Card within Card Look */
+        .detail-card {
+            border-radius: 1.5rem;
+            background-color: #f0f4f7;
+            /* Slightly darker background for the outer container */
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .detail-card-inner {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.03);
+            /* Inner shadow for depth */
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .list-item {
+            padding-left: 1rem;
+            font-size: 0.9rem;
+            /* Slightly smaller text for list density */
+        }
+
+        .list-item::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        /* GALLERY SPECIFIC STYLES - MODIFIED FOR HIGH CONTRAST & COVER FIT */
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+
+        /* New grid for Gallery on large screens (3 columns for 3 rows) */
+        @media (min-width: 1024px) {
+            .lg-gallery-cols-3 {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        /* SPECIAL DESIGN SECTION STYLES */
+        .special-design-block {
+            background: linear-gradient(135deg, #1f2937, #0d3737);
+            /* Dark background gradient */
+            color: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .design-thumbnail {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 0.75rem;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* HERO SECTION SPECIFIC ALIGNMENT FIX (Image Left, Text Right) */
+        @media (min-width: 768px) {
+            .hero-content {
+                display: flex;
+                flex-direction: row;
+                /* Image left, Text right */
+                text-align: left;
+                align-items: center;
+                gap: 3rem;
+                padding-left: 4rem;
+                padding-right: 4rem;
+            }
+
+            .hero-text-container {
+                flex-grow: 1;
+                order: 1;
+            }
+
+            .hero-image-container {
+                flex-shrink: 0;
+                order: 0;
+                /* Move image to the left */
+            }
+
+            .hero-image-container img {
+                width: 100%;
+                max-width: 200px;
+                /* Limit image size */
+            }
+        }
+
+        /* Ensure text containers are not horizontally centered by default */
+        .hero-text-container h1,
+        .hero-text-container p {
+            text-align: left !important;
+        }
+
+        /* AI SEARCH BAR STYLES */
+        .ai-search-container {
+            background-color: #e2e8f0;
+            /* Light Gray/Slate 200 */
+            border-radius: 1.5rem;
+            padding: 2.5rem 1.5rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .ai-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #374151;
+            /* Dark border for visibility */
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .ai-input-wrapper {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .ai-input-wrapper svg {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #374151;
+            cursor: pointer;
+        }
+
+        .ai-prompt-button {
+            background-color: #3b82f6;
+            /* Blue for AI/modern look */
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            /* Pill shape */
+            transition: background-color 0.2s;
+            font-size: 0.875rem;
+        }
+
+        .ai-prompt-button:hover {
+            background-color: #2563eb;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <header class="fixed top-0 left-0 right-0 z-50 apple-nav">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="text-xl font-extrabold tracking-tight text-gray-900">
+                E. N. RAO <span class="text-teal-600">CONSULTING</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#expertise" class="text-gray-600 hover:text-teal-600 transition">Expertise</a>
+                <a href="#phases" class="text-gray-600 hover:text-teal-600 transition">Portfolio Overview</a>
+                <a href="#special-design" class="text-pink-600 font-semibold hover:text-pink-700 transition">3D
+                    Design</a>
+                <a href="#details" class="text-gray-600 hover:text-teal-600 transition">Detailed Services</a>
+                <a href="#gallery" class="text-gray-600 hover:text-teal-600 transition">Gallery</a>
+                <a href="#about" class="text-gray-600 hover:text-teal-600 transition">The Expert</a>
+                <a href="#contact"
+                    class="px-3 py-1 bg-teal-600 text-white rounded-full hover:bg-teal-700 transition">Get Started</a>
+            </div>
+            <button class="md:hidden text-gray-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 1. HERO SECTION (REDESIGNED FOR IMAGE LEFT / TEXT RIGHT) -->
+        <section id="hero" class="pt-24 pb-16 lg:pt-28 lg:pb-20 max-w-7xl mx-auto px-4">
+            <div class="hero-content">
+
+                <!-- Left: Image Container (Visible on MD and larger) -->
+                <div class="hero-image-container hidden md:block w-full md:w-1/3 lg:w-1/4">
+                    <img src="https://github.com/sabs-27/images/blob/main/unnamed.jpg?raw=true"
+                        alt="E. N. Rao Consulting Expert"
+                        class="w-full h-auto rounded-xl shadow-2xl ring-4 ring-teal-500/50"
+                        onerror="this.onerror=null; this.src='https://placehold.co/300x400/94a3b8/ffffff?text=ENR+Expert';">
+                </div>
+
+                <!-- Right: Text Container -->
+                <div class="hero-text-container text-center md:text-left">
+                    <div class="main-consulting-title mb-4">
+                        E. N. Rao <span class="text-teal-600">CONSULTING</span>
+                    </div>
+
+                    <h1 class="text-5xl lg:text-6xl font-black leading-none tracking-tight mb-4">
+                        <span class="hero-text-gradient block">Excellence in Civil Works.</span>
+                    </h1>
+                    <p class="text-lg text-gray-500 max-w-xl md:max-w-none mb-8">
+                        Leverage the precision and proven methodologies of a retired Executive Engineer. We offer
+                        specialist consultancy in housing, R&R, and complex civil documentation.
+                    </p>
+                    <a href="#phases"
+                        class="inline-block px-8 py-3 bg-teal-600 text-white text-lg font-medium rounded-full shadow-lg shadow-teal-500/50 hover:bg-teal-700 transition transform hover:scale-[1.02]">
+                        Explore Service Portfolio
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- NEW AI POWERED SEARCH SECTION (Moved before Expertise) -->
+        <section id="ai-help" class="py-6 sm:py-8 bg-gray-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="ai-search-container">
+                    <h3 class="text-2xl font-extrabold text-gray-900 text-center mb-6">AI-Powered Project Assistant</h3>
+                    <p class="text-gray-600 text-center mb-4">Ask about tender requirements, R&R policies, or innovation
+                        technology.</p>
+                    <div class="ai-input-wrapper">
+                        <input type="text" placeholder="Search suitable project help..." class="ai-input"
+                            id="ai-query-input">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                            onclick="document.getElementById('ai-query-input').value = ''">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                        </svg>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <button class="ai-prompt-button">What are the DPR requirements?</button>
+                        <button class="ai-prompt-button">Explain Low-Cost Housing methods</button>
+                        <button class="ai-prompt-button">R&R compliance steps</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. CORE EXPERTISE SECTION -->
+        <section id="expertise" class="py-8 sm:py-12 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-center mb-12">The Pillars of Expertise</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                    <!-- Pillar 1: R&R -->
+                    <div class="text-center p-8 bg-gray-50 rounded-xl border border-gray-100 service-card">
+                        <svg class="w-10 h-10 mx-auto mb-4 text-teal-600" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M17 20h-5v-5h5V20zM12 20H7v-5h5V20zM7 15H2v-5h5V15zM12 15h5v-5h-5V15zM17 10h5V5h-5V10zM12 10H7V5h5V10zM7 5H2V0h5V5zM12 5h5V0h-5V5z">
+                            </path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M22 20v-5h-5M2 5v5h5"></path>
+                        </svg>
+                        <h3 class="text-xl font-bold mb-2">R&R & Compliance</h3>
+                        <p class="text-gray-500 text-sm">Specialist in Rehabilitation and Resettlement (R&R) protocols,
+                            including Polavaram-style project documentation and family tracking.</p>
+                    </div>
+
+                    <!-- Pillar 2: Documentation -->
+                    <div class="text-center p-8 bg-gray-50 rounded-xl border border-gray-100 service-card">
+                        <svg class="w-10 h-10 mx-auto mb-4 text-teal-600" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M9 12h6m-6 4h6m-4 0V4m-2 16h8a2 2 0 002-2V6a2 2 0 00-2-2H8a2 2 0 00-2 2v12a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                        <h3 class="text-xl font-bold mb-2">Tender & DPR Mastery</h3>
+                        <p class="text-gray-500 text-sm">Expert drafting of Detailed Project Reports (DPRs), Bill of
+                            Quantities (BoQs), estimates, and successful tender documentation.</p>
+                    </div>
+
+                    <!-- Pillar 3: Innovation -->
+                    <div class="text-center p-8 bg-gray-50 rounded-xl border border-gray-100 service-card">
+                        <svg class="w-10 h-10 mx-auto mb-4 text-teal-600" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M12 10a4 4 0 100-8 4 4 0 000 8zM5 21v-2a4 4 0 014-4h6a4 4 0 014 4v2m-2-12a5 5 0 00-5-5h0a5 5 0 00-5 5h0">
+                            </path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M22 17l-3-3M22 17l-3 3M17 22l3-3M17 22l3 3"></path>
+                        </svg>
+                        <h3 class="text-xl font-bold mb-2">Low-Cost Innovation</h3>
+                        <p class="text-gray-500 text-sm">Implementation of Low-Cost Housing Technologies and shear wall
+                            systems for sustainable and cost-effective construction.</p>
+                    </div>
+
+                    <!-- Pillar 4: Execution -->
+                    <div class="text-center p-8 bg-gray-50 rounded-xl border border-gray-100 service-card">
+                        <svg class="w-10 h-10 mx-auto mb-4 text-teal-600" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M3 13V7a2 2 0 012-2h14a2 2 0 012 2v6m-9 5h-4a2 2 0 01-2-2v-2a2 2 0 012-2h4a2 2 0 012 2v2a2 2 0 01-2 2zM3 17h18">
+                            </path>
+                        </svg>
+                        <h3 class="text-xl font-bold mb-2">Project Execution</h3>
+                        <p class="text-gray-500 text-sm">Proven track record in G+2 multi-storied schemes (IHSDP/JNNURM)
+                            and meticulous site management for large-scale projects.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. PORTFOLIO OVERVIEW SECTION (9-TILE/CATEGORY LAYOUT) -->
+        <section id="phases" class="py-8 sm:py-12 bg-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <!-- Main Container for the Boxed Content -->
+                <div
+                    class="bg-white p-6 sm:p-12 rounded-3xl shadow-2xl shadow-gray-200/50 border border-gray-200 lg:flex lg:space-x-12">
+
+                    <!-- Left Side: Heading and Intro Text (Full width on mobile, 1/3 on desktop) -->
+                    <div class="lg:w-1/3 mb-10 lg:mb-0">
+                        <p class="text-lg font-semibold text-teal-600 uppercase tracking-widest mb-2">The Complete
+                            Service Portfolio</p>
+                        <h2 class="text-4xl font-extrabold mb-6 text-gray-900">9 Categories of Civil Engineering Mastery
+                        </h2>
+                        <p class="text-gray-600 text-lg">
+                            Our offerings are organized into 9 detailed service categories, providing comprehensive
+                            coverage for every stage of public and private sector projects, from initial documentation
+                            to innovative execution.
+                        </p>
+                        <a href="#details"
+                            class="mt-6 inline-block text-teal-600 font-medium hover:text-teal-700 transition">
+                            View Detailed Service Breakdown &rarr;
+                        </a>
+                    </div>
+
+                    <!-- Right Side: 9 Tiles (3x3 Matrix) (Full width on mobile, 2/3 on desktop) -->
+                    <div class="lg:w-2/3">
+                        <!-- 3x3 grid -->
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg-grid-cols-3 gap-4">
+
+                            <!-- Tile 1: SPECIAL CATEGORY (Engineering Design & Simulation) -->
+                            <div class="phase-tile p-5">
+                                <span class="bg-circle-1 bg-pink-300"></span>
+                                <div class="z-10">
+                                    <svg class="w-8 h-8 mx-auto mb-2 text-pink-600 tile-icon" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37a1.724 1.724 0 002.572-1.065z">
+                                        </path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                    <h3 class="text-lg font-semibold text-gray-800">1. Design & Simulation (Special)
+                                    </h3>
+                                    <p class="text-xs text-gray-500 mt-1">3D Layout Explorer</p>
+                                </div>
+                                <span class="bg-circle-2 bg-yellow-300"></span>
+                            </div>
+
+                            <!-- Tile 2: Government Housing (Original Category 1) -->
+                            <div class="phase-tile p-5">
+                                <span class="bg-circle-1 bg-blue-300"></span>
+                                <div class="z-10">
+                                    <svg class="w-8 h-8 mx-auto mb-2 text-blue-600 tile-icon" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                                        </path>
+                                    </svg>
+                                    <h3 class="text-lg font-semibold text-gray-800">2. Govt. Housing Strategy</h3>
+                                    <p class="text-xs text-gray-500 mt-1">Policy & Implementation</p>
+                                </div>
+                                <span class="bg-circle-2 bg-purple-300"></span>
+                            </div>
+
+                            <!-- Tile 3: Tendering & DPR (Original Category 2) -->
+                            <div class="phase-tile p-5">
+                                <span class="bg-circle-1 bg-yellow-300"></span>
+                                <div class="z-10">
+                                    <svg class="w-8 h-8 mx-auto mb-2 text-yellow-600 tile-icon" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M9 12h6m-6 4h6m-6-4l-3 3m0 0h6a2 2 0 002-2V6a2 2 0 00-2-2H9a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                        </path>
+                                    </svg>
+                                    <h3 class="text-lg font-semibold text-gray-800">3. Tendering & DPR</h3>
+                                    <p class="text-xs text-gray-500 mt-1">BoQ, Costing & Bids</p>
+                                </div>
+                                <span class="bg-circle-2 bg-orange-300"></span>
+                            </div>
+
+                            <!-- Tile 4: Construction Management (Original Category 3) -->
+                            <div class="phase-tile p-5">
+                                <span class="bg-circle-1 bg-red-300"></span>
+                                <div class="z-10">
+                                    <svg class="w-8 h-8 mx-auto mb-2 text-red-600 tile-icon" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M12 6V4m0 2a2 2 0 00-2 2v3a2 2 0 002 2m-2-5h4m-4 0v-3a2 2 0 012-2m-4 8h4m-4 0v4a2 2 0 002 2h0a2 2 0 002-2v-4m-6 0h12">
+                                        </path>
+                                    </svg>
+                                    <h3 class="text-lg font-semibold text-gray-800">4. Site Execution</h3>
+                                    <p class="text-xs text-gray-500 mt-1">Supervision & Oversight</p>
+                                </div>
+                                <span class="bg-circle-2 bg-pink-300"></span>
+                            </div>
+
+                            <!-- Tile 5: R&R Services (Original Category 4) -->
+                            <div class="phase-tile p-5">
+                                <span class="bg-circle-1 bg-indigo-300"></span>
+                                <div class="z-10">
+                                    <svg class="w-8 h-8 mx-auto mb-2 text-indigo-600 tile-icon" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M12 4.354a4 4 0 110 5.292M12 20.207l9.879-9.88c.879-.879.879-2.317 0-3.196L17.5 3.5c-.879-.879-2.317-.879-3.196 0L12 7.854 8.696 4.558c-.879-.879-2.317-.879-3.196 0L2.121 7.121c-.879.879-.879 2.317 0 3.196L12 20.207z">
+                                        </path>
+                                    </svg>
+                                    <h3 class="text-lg font-semibold text-gray-800">5. R&R Planning</h3>
+                                    <p class="text-xs text-gray-500 mt-1">Resettlement Compliance</p>
+                                </div>
+                                <span class="bg-circle-2 bg-blue-300"></span>
+                            </div>
+
+                            <!-- Tile 6: Low-Cost Innovation (Original Category 5) -->
+                            <div class="phase-tile p-5">
+                                <span class="bg-circle-1 bg-teal-300"></span>
+                                <div class="z-10">
+                                    <svg class="w-8 h-8 mx-auto mb-2 text-teal-600 tile-icon" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    </svg>
+                                    <h3 class="text-lg font-semibold text-gray-800">6. Low-Cost Housing</h3>
+                                    <p class="text-xs text-gray-500 mt-1">Innovation & Technology</p>
+                                </div>
+                                <span class="bg-circle-2 bg-green-300"></span>
+                            </div>
+
+                            <!-- Tile 7: Training & Education (Original Category 6) -->
+                            <div class="phase-tile p-5">
+                                <span class="bg-circle-1 bg-green-300"></span>
+                                <div class="z-10">
+                                    <svg class="w-8 h-8 mx-auto mb-2 text-green-600 tile-icon" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M12 6.253v13m0-13C10.832 5.409 10.036 5 9 5c-2.43 0-4 1.258-4 4s1.57 4 4 4c1.036 0 1.832-.409 3-1.147M12 6.253c1.168.846 1.964 1.253 3 1.253 2.43 0 4-1.258 4-4s-1.57-4-4-4c-1.036 0-1.832.409-3 1.147">
+                                        </path>
+                                    </svg>
+                                    <h3 class="text-lg font-semibold text-gray-800">7. Mentorship & Training</h3>
+                                    <p class="text-xs text-gray-500 mt-1">Workshops for Engineers</p>
+                                </div>
+                                <span class="bg-circle-2 bg-teal-300"></span>
+                            </div>
+
+                            <!-- Tile 8: Quality Assurance (Original Category 7) -->
+                            <div class="phase-tile p-5">
+                                <span class="bg-circle-1 bg-orange-300"></span>
+                                <div class="z-10">
+                                    <svg class="w-8 h-8 mx-auto mb-2 text-orange-600 tile-icon" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944c-1.849 0-3.693.424-5.38.995L4.7 6.47M4.7 6.47L3 8.17M12 21c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9z">
+                                        </path>
+                                    </svg>
+                                    <h3 class="text-lg font-semibold text-gray-800">8. Quality Assurance</h3>
+                                    <p class="text-xs text-gray-500 mt-1">Audits & Certification</p>
+                                </div>
+                                <span class="bg-circle-2 bg-yellow-300"></span>
+                            </div>
+
+                            <!-- Tile 9: Private Sector (Original Category 8) -->
+                            <div class="phase-tile p-5">
+                                <span class="bg-circle-1 bg-purple-300"></span>
+                                <div class="z-10">
+                                    <svg class="w-8 h-8 mx-auto mb-2 text-purple-600 tile-icon" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M4 6h16M4 12h16M4 18h7"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M18 12h2m-2 0a2 2 0 10-4 0m4 0a2 2 0 11-4 0m-2 4h4m-4 0a2 2 0 10-4 0m4 0a2 2 0 11-4 0">
+                                        </path>
+                                    </svg>
+                                    <h3 class="text-lg font-semibold text-gray-800">9. Private Project Advisory</h3>
+                                    <p class="text-xs text-gray-500 mt-1">Layouts & Apartments</p>
+                                </div>
+                                <span class="bg-circle-2 bg-indigo-300"></span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- 4. SPECIAL DESIGN SECTION (NEW PROMINENT BLOCK) -->
+        <section id="special-design" class="py-8 sm:py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="special-design-block p-8 md:p-12 lg:flex lg:items-center lg:justify-between">
+
+                    <!-- Left Side: Image Thumbnail -->
+                    <div class="lg:w-1/3 mb-8 lg:mb-0 lg:mr-12 flex-shrink-0">
+                        <img src="https://i.ibb.co/gFXWWWd6/image.jpg" alt="3D Engineering Layout Simulation"
+                            class="design-thumbnail"
+                            onerror="this.onerror=null; this.src='https://placehold.co/800x400/94a3b8/ffffff?text=3D+SIMULATION';">
+                    </div>
+
+                    <!-- Right Side: Content and CTA -->
+                    <div class="lg:w-2/3">
+                        <p class="text-lg font-semibold text-pink-400 uppercase tracking-widest mb-2">Special Feature
+                        </p>
+                        <h2 class="text-4xl font-extrabold mb-4 text-white">Engineering Design & Live 3D Simulation</h2>
+                        <p class="text-gray-300 text-lg mb-6">
+                            Visualize complex projects instantly. Our Special Category offers advanced design expertise
+                            coupled with interactive 3D simulations, allowing you to explore layouts and master plans by
+                            moving the camera directly.
+                        </p>
+                        <ul class="text-gray-300 text-sm space-y-2 mb-8 list-none">
+                            <li class="flex items-start">
+                                <span class="text-pink-400 mr-2 font-bold text-lg leading-none">&#10003;</span>
+                                <span>Infrastructure Layout Design for Colonies</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-pink-400 mr-2 font-bold text-lg leading-none">&#10003;</span>
+                                <span>2D/3D Housing Prototype and Elevation Design</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-pink-400 mr-2 font-bold text-lg leading-none">&#10003;</span>
+                                <span>Shear Wall Structural Design Consultancy</span>
+                            </li>
+                        </ul>
+                        <a href="https://gemini.google.com/share/1de5075e8ceb" target="_blank"
+                            class="inline-block px-8 py-3 bg-pink-600 text-white text-lg font-medium rounded-full hover:bg-pink-700 transition transform hover:scale-[1.05] shadow-lg shadow-pink-500/50">
+                            Experience Live 3D Simulation &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 5. DETAILED SERVICE CARDS SECTION (Re-indexed and re-imaged) -->
+        <section id="details" class="py-8 sm:py-12 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <p class="text-lg font-semibold text-center text-teal-600 uppercase tracking-widest mb-2">In-Depth
+                    Breakdown</p>
+                <h2 class="text-3xl font-extrabold text-center mb-6 text-gray-900">80 Specific Service Deliverables
+                </h2>
+
+                <!-- Fixed to 2 columns on large screens to increase space for list items -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+
+                    <!-- Card 1: CATEGORY 1 (Consultancy) -->
+                    <div class="detail-card">
+                        <div class="detail-card-inner">
+                            <div>
+                                <!-- Thumbnail for Category 1 -->
+                                <div class="mb-4">
+                                    <img src="https://images.forbesindia.com/blog/wp-content/uploads/media/images/2017/Feb/img_93087_img_0027affordablehomes.jpg"
+                                        alt="Government Housing Project Consultant"
+                                        class="w-24 h-20 object-cover rounded-md float-right ml-4 shadow-md"
+                                        onerror="this.onerror=null; this.src='https://placehold.co/100x80/0d9488/ffffff?text=Cat+1';">
+                                </div>
+                                <h3 class="text-xl font-bold mb-4 text-gray-900 border-b pb-2 border-teal-100">Category
+                                    1: Consultancy Based on Government Housing Experience</h3>
+                                <ul class="space-y-2 text-gray-700 text-sm mb-6">
+                                    <li class="list-item">Government Housing Project Consultant</li>
+                                    <li class="list-item">Housing Scheme Implementation Advisor</li>
+                                    <li class="list-item">Rural Housing Model Designer</li>
+                                    <li class="list-item">Housing Policy & Tender Advisory</li>
+                                    <li class="list-item">Quality Control Consultant for Government Works</li>
+                                    <li class="list-item">Third-party Auditor for Housing Projects</li>
+                                    <li class="list-item">Training Consultant for APSHCL-style housing operations</li>
+                                    <li class="list-item">Consultant for Rajiv Gruha Kalpa / JNNURM style schemes</li>
+                                    <li class="list-item">Administrative Process Consultant for Housing Departments</li>
+                                </ul>
+                            </div>
+                            <a href="#contact"
+                                class="mt-4 w-full text-center inline-block px-4 py-2 bg-teal-600 text-white text-sm font-medium rounded-full hover:bg-teal-700 transition">Read
+                                More / Inquire</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: CATEGORY 2 (Tendering) -->
+                    <div class="detail-card">
+                        <div class="detail-card-inner">
+                            <div>
+                                <!-- Thumbnail for Category 2 -->
+                                <div class="mb-4">
+                                    <img src="https://www.makemyhouse.com/blogs/wp-content/uploads/2023/05/luxury-house-plan.webp"
+                                        alt="House plan/documentation"
+                                        class="w-24 h-20 object-cover rounded-md float-right ml-4 shadow-md"
+                                        onerror="this.onerror=null; this.src='https://placehold.co/100x80/0d9488/ffffff?text=Cat+2';">
+                                </div>
+                                <h3 class="text-xl font-bold mb-4 text-gray-900 border-b pb-2 border-teal-100">Category
+                                    2: Tendering, DPR & Documentation Services</h3>
+                                <ul class="space-y-2 text-gray-700 text-sm mb-6">
+                                    <li class="list-item">DPR (Detailed Project Report) Preparation Services</li>
+                                    <li class="list-item">BoQ (Bill of Quantities) Preparation Agency</li>
+                                    <li class="list-item">Tender Documentation Drafting Consultancy</li>
+                                    <li class="list-item">Pre-bid Engineering Support Services</li>
+                                    <li class="list-item">Layout Plan Designing for Housing Projects</li>
+                                    <li class="list-item">Estimation & Costing Services for Contractors</li>
+                                    <li class="list-item">Feasibility Study Reports for Civil Projects</li>
+                                    <li class="list-item">Project Proposal Writing Services</li>
+                                    <li class="list-item">Civil Engineering Documentation Outsourcing Firm</li>
+                                    <li class="list-item">Tender Scrutiny & Technical Review Services</li>
+                                </ul>
+                            </div>
+                            <a href="#contact"
+                                class="mt-4 w-full text-center inline-block px-4 py-2 bg-teal-600 text-white text-sm font-medium rounded-full hover:bg-teal-700 transition">Read
+                                More / Inquire</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: CATEGORY 3 (Construction Mgt) -->
+                    <div class="detail-card">
+                        <div class="detail-card-inner">
+                            <div>
+                                <!-- Thumbnail for Category 3 -->
+                                <div class="mb-4">
+                                    <img src="https://p.turbosquid.com/ts-thumb/MF/d7U16O/Id/searchimage/jpg/1622166563/1920x1080/fit_q87/2c3e4eab82589b9006ac9b1f456b03a3f531cfad/searchimage.jpg"
+                                        alt="Construction management"
+                                        class="w-24 h-20 object-cover rounded-md float-right ml-4 shadow-md"
+                                        onerror="this.onerror=null; this.src='https://placehold.co/100x80/0d9488/ffffff?text=Cat+3';">
+                                </div>
+                                <h3 class="text-xl font-bold mb-4 text-gray-900 border-b pb-2 border-teal-100">Category
+                                    3: Civil Engineering & Construction Management Services</h3>
+                                <ul class="space-y-2 text-gray-700 text-sm mb-6">
+                                    <li class="list-item">End-to-end Civil Works Supervision</li>
+                                    <li class="list-item">Construction Quality Monitoring Firm</li>
+                                    <li class="list-item">Site Management & Supervision Services</li>
+                                    <li class="list-item">Contractor Performance Evaluation Services</li>
+                                    <li class="list-item">Municipal Civil Works Consultancy</li>
+                                    <li class="list-item">Revenue Department Construction Advisory</li>
+                                    <li class="list-item">Multi-storied Building Execution Consultant</li>
+                                    <li class="list-item">G+2 Housing Scheme Specialist</li>
+                                    <li class="list-item">Senior Engineer On-Call Advisory Service</li>
+                                    <li class="list-item">Independent Construction Verification & Certification</li>
+                                </ul>
+                            </div>
+                            <a href="#contact"
+                                class="mt-4 w-full text-center inline-block px-4 py-2 bg-teal-600 text-white text-sm font-medium rounded-full hover:bg-teal-700 transition">Read
+                                More / Inquire</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: CATEGORY 4 (R&R) -->
+                    <div class="detail-card">
+                        <div class="detail-card-inner">
+                            <div>
+                                <!-- Thumbnail for Category 4 -->
+                                <div class="mb-4">
+                                    <img src="https://static.wixstatic.com/media/64f0f1_833aed309e824daaa952d99ba77c555f~mv2.jpg/v1/fill/w_932%2Ch_476%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/DJI_0399_JPG.jpg"
+                                        alt="R&R planning/aerial view"
+                                        class="w-24 h-20 object-cover rounded-md float-right ml-4 shadow-md"
+                                        onerror="this.onerror=null; this.src='https://placehold.co/100x80/0d9488/ffffff?text=Cat+4';">
+                                </div>
+                                <h3 class="text-xl font-bold mb-4 text-gray-900 border-b pb-2 border-teal-100">Category
+                                    4: R&R (Rehabilitation & Resettlement) Project Services</h3>
+                                <ul class="space-y-2 text-gray-700 text-sm mb-6">
+                                    <li class="list-item">R&R Policy Implementation Consultant</li>
+                                    <li class="list-item">Rehabilitation Planning Specialist</li>
+                                    <li class="list-item">Polavaram-style Project Advisory Service</li>
+                                    <li class="list-item">R&R Documentation & Reporting Firm</li>
+                                    <li class="list-item">Displacement Family Tracking & Planning Solutions</li>
+                                    <li class="list-item">Livelihood Restoration Programme Consultant</li>
+                                    <li class="list-item">R&R Field Survey Team Provider</li>
+                                    <li class="list-item">Social Impact Assessment Specialist</li>
+                                    <li class="list-item">Resettlement Colony Layout Planning Agency</li>
+                                    <li class="list-item">R&R Compliance & Verification Services</li>
+                                </ul>
+                            </div>
+                            <a href="#contact"
+                                class="mt-4 w-full text-center inline-block px-4 py-2 bg-teal-600 text-white text-sm font-medium rounded-full hover:bg-teal-700 transition">Read
+                                More / Inquire</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: CATEGORY 5 (Low-Cost) -->
+                    <div class="detail-card">
+                        <div class="detail-card-inner">
+                            <div>
+                                <!-- Thumbnail for Category 5 -->
+                                <div class="mb-4">
+                                    <img src="https://architales.org/wp-content/uploads/2020/04/1cseb.jpg"
+                                        alt="Low-cost bricks and construction innovation"
+                                        class="w-24 h-20 object-cover rounded-md float-right ml-4 shadow-md"
+                                        onerror="this.onerror=null; this.src='https://placehold.co/100x80/0d9488/ffffff?text=Cat+5';">
+                                </div>
+                                <h3 class="text-xl font-bold mb-4 text-gray-900 border-b pb-2 border-teal-100">Category
+                                    5: Low-Cost Housing & Innovation Technology Services</h3>
+                                <ul class="space-y-2 text-gray-700 text-sm mb-6">
+                                    <li class="list-item">Low-Cost Housing Technology Consultant</li>
+                                    <li class="list-item">Rural Affordable Housing Planner</li>
+                                    <li class="list-item">Nirmithi Kendra-style Innovation Training Workshops</li>
+                                    <li class="list-item">Low-Cost Materials Advisory Services</li>
+                                    <li class="list-item">Innovative Construction Technique Trainer</li>
+                                    <li class="list-item">Affordable Housing Design Studio</li>
+                                    <li class="list-item">Disaster-Resistant Low-Cost Housing Solutions</li>
+                                    <li class="list-item">Self-help Group (SHG) Housing Advisor</li>
+                                    <li class="list-item">Precast / Prefab Housing Consultancy</li>
+                                    <li class="list-item">Village Infrastructure Development Consultant</li>
+                                </ul>
+                            </div>
+                            <a href="#contact"
+                                class="mt-4 w-full text-center inline-block px-4 py-2 bg-teal-600 text-white text-sm font-medium rounded-full hover:bg-teal-700 transition">Read
+                                More / Inquire</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: CATEGORY 6 (Training) -->
+                    <div class="detail-card">
+                        <div class="detail-card-inner">
+                            <div>
+                                <!-- Thumbnail for Category 6 -->
+                                <div class="mb-4">
+                                    <img src="https://apah.org.in/wp-content/uploads/2018/12/Site-Visit_Apaha-Trainers-and-Consultants_Best-Construction-Management-Training-in-Pune-India.jpg"
+                                        alt="Training workshop/site visit"
+                                        class="w-24 h-20 object-cover rounded-md float-right ml-4 shadow-md"
+                                        onerror="this.onerror=null; this.src='https://placehold.co/100x80/0d9488/ffffff?text=Cat+6';">
+                                </div>
+                                <h3 class="text-xl font-bold mb-4 text-gray-900 border-b pb-2 border-teal-100">Category
+                                    6: Training, Workshops & Educational Services</h3>
+                                <ul class="space-y-2 text-gray-700 text-sm mb-6">
+                                    <li class="list-item">Civil Engineering Mentorship Program</li>
+                                    <li class="list-item">Government Civil Works Exam Coaching</li>
+                                    <li class="list-item">Workshops on Tendering, DPR, BoQ</li>
+                                    <li class="list-item">Training Classes for Junior Engineers & AEs</li>
+                                    <li class="list-item">College Guest Lectures & Seminars</li>
+                                    <li class="list-item">Skill Development Courses for Rural Engineers</li>
+                                    <li class="list-item">On-site Practical Training for Civil Students</li>
+                                    <li class="list-item">Online Course Platform for Housing Engineering</li>
+                                    <li class="list-item">Construction Technology Innovation Workshops</li>
+                                    <li class="list-item">Supervisor & Contractor Training Programs</li>
+                                </ul>
+                            </div>
+                            <a href="#contact"
+                                class="mt-4 w-full text-center inline-block px-4 py-2 bg-teal-600 text-white text-sm font-medium rounded-full hover:bg-teal-700 transition">Read
+                                More / Inquire</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 7: CATEGORY 7 (QA) -->
+                    <div class="detail-card">
+                        <div class="detail-card-inner">
+                            <div>
+                                <!-- Thumbnail for Category 7 -->
+                                <div class="mb-4">
+                                    <img src="https://www.bradyid.com/-/media/brady-americas-images/smartsite-images/resource-center/article-images/construction-safety-compliance-guide/og_constructionsafetyguide.jpg"
+                                        alt="Safety compliance/QA"
+                                        class="w-24 h-20 object-cover rounded-md float-right ml-4 shadow-md"
+                                        onerror="this.onerror=null; this.src='https://placehold.co/100x80/0d9488/ffffff?text=Cat+7';">
+                                </div>
+                                <h3 class="text-xl font-bold mb-4 text-gray-900 border-b pb-2 border-teal-100">Category
+                                    7: Project Monitoring & Quality Assurance Services</h3>
+                                <ul class="space-y-2 text-gray-700 text-sm mb-6">
+                                    <li class="list-item">Third-party Construction Quality Audit</li>
+                                    <li class="list-item">Progress Monitoring & Reporting Agency</li>
+                                    <li class="list-item">Site Inspection & Certification Services</li>
+                                    <li class="list-item">Material Quality Verification Firm</li>
+                                    <li class="list-item">Field Measurement Book (MB) Verification Services</li>
+                                    <li class="list-item">Safety Compliance Audit for Construction Sites</li>
+                                    <li class="list-item">Structural Stability Inspection Service</li>
+                                    <li class="list-item">Completion Certificate Review Consultancy</li>
+                                    <li class="list-item">Civil Works Performance Audit Firm</li>
+                                    <li class="list-item">Post-construction Defect Inspection Agency</li>
+                                </ul>
+                            </div>
+                            <a href="#contact"
+                                class="mt-4 w-full text-center inline-block px-4 py-2 bg-teal-600 text-white text-sm font-medium rounded-full hover:bg-teal-700 transition">Read
+                                More / Inquire</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 8: CATEGORY 8 (Private Sector) -->
+                    <div class="detail-card">
+                        <div class="detail-card-inner">
+                            <div>
+                                <!-- Thumbnail for Category 8 -->
+                                <div class="mb-4">
+                                    <img src="https://architectureideas.info/wp-content/uploads/2013/09/houseconstruction-india.jpg"
+                                        alt="Private residential construction"
+                                        class="w-24 h-20 object-cover rounded-md float-right ml-4 shadow-md"
+                                        onerror="this.onerror=null; this.src='https://placehold.co/100x80/0d9488/ffffff?text=Cat+8';">
+                                </div>
+                                <h3 class="text-xl font-bold mb-4 text-gray-900 border-b pb-2 border-teal-100">Category
+                                    8: Private Sector Residential & Infrastructure Services</h3>
+                                <ul class="space-y-2 text-gray-700 text-sm mb-6">
+                                    <li class="list-item">Private Layout & Villa Project Advisory</li>
+                                    <li class="list-item">Apartment Planner for G+1 / G+2 Buildings</li>
+                                    <li class="list-item">Infrastructure Planning for Gated Communities</li>
+                                    <li class="list-item">Independent House Construction Guidance</li>
+                                    <li class="list-item">Project Manager for Small Builders</li>
+                                    <li class="list-item">Cost Optimization Consultancy for Builders</li>
+                                    <li class="list-item">Vastu-Friendly Layout Planning</li>
+                                    <li class="list-item">Quality Improvement Consulting for Builders</li>
+                                    <li class="list-item">Value Engineering Services</li>
+                                    <li class="list-item">Structural Safety Audit for Apartments</li>
+                                </ul>
+                            </div>
+                            <a href="#contact"
+                                class="mt-4 w-full text-center inline-block px-4 py-2 bg-teal-600 text-white text-sm font-medium rounded-full hover:bg-teal-700 transition">Read
+                                More / Inquire</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 5. ABOUT / CREDIBILITY SECTION -->
+        <section id="about" class="py-8 sm:py-12 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+
+                    <!-- Text Content -->
+                    <div class="mb-10 lg:mb-0">
+                        <p class="text-lg font-semibold text-teal-600 uppercase tracking-widest mb-2">The Expert</p>
+                        <h2 class="text-4xl font-extrabold mb-6">E. Narasimha Rao (Executive Engineer Retd.)</h2>
+                        
+                        <!-- AP Housing Board Experience Highlight -->
+                        <div class="bg-teal-50 border-l-4 border-teal-600 p-4 mb-6 rounded-r-lg">
+                            <p class="text-gray-800 font-semibold mb-2">
+                                <span class="text-teal-700">Former Executive Engineer</span> - AP Housing Board Corporation
+                            </p>
+                            <p class="text-gray-600 text-sm">
+                                Served with distinction in the Andhra Pradesh Housing Board Corporation, leading major 
+                                housing initiatives and infrastructure projects across the state.
+                            </p>
+                        </div>
+                        
+                        <p class="text-gray-600 text-lg mb-6">
+                            With 39 years and 9 months dedicated to the Housing Department, Mr. Rao’s career is defined
+                            by excellence in complex civil works, project oversight, and policy implementation. His
+                            experience as Executive Engineer R&R and District Head Housing with the 
+                            <strong>AP Housing Board Corporation</strong> provides an unparalleled
+                            understanding of public sector infrastructure.
+                        </p>
+                        <p class="text-gray-600 text-lg mb-8">
+                            He successfully executed multi-storied G+2 schemes and pioneered the use of Low-Cost Housing
+                            Technologies and the Nirmithi Kendra Innovation Centre methodology during his tenure with 
+                            AP Housing Board.
+                        </p>
+                        <a href="#contact" class="text-teal-600 font-medium hover:text-teal-700 transition">
+                            View Full Professional Profile &rarr;
+                        </a>
+                    </div>
+
+                    <!-- Credibility Card (Awards/Appreciations) -->
+                    <div class="bg-gray-50 p-8 sm:p-12 rounded-3xl shadow-xl border border-gray-200">
+                        <!-- AP Housing Board Logo -->
+                        <div class="mb-6 flex justify-center">
+                            <img src="https://www.bizzbuzz.news/h-upload/2021/03/23/990579-aph.webp" 
+                                 alt="AP Housing Board Corporation" 
+                                 class="h-24 w-auto object-contain"
+                                 onerror="this.style.display='none'">
+                        </div>
+                        
+                        <p class="text-6xl font-extrabold text-teal-600 mb-4 tracking-tight">39+</p>
+                        <h3 class="text-2xl font-bold mb-3 text-gray-900">Years of Service. Proven Reliability.</h3>
+                        <p class="text-gray-500 mb-6">
+                            Our methodology is rooted in the principles that earned multiple Appreciations and Awards
+                            from Government and District Collectors—meticulous execution and utmost satisfaction.
+                        </p>
+                        <div class="flex items-center space-x-3">
+                            <span class="inline-block p-2 bg-teal-100 rounded-full">
+                                <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M11.049 2.872c.38-.83 1.54-.83 1.92 0l1.54 3.35c.18.39.54.67.95.67h3.58c.95 0 1.34 1.15.58 1.76l-2.8 2.37c-.36.31-.5 1-.22 1.48l1.04 3.7c.28 1.04-.6 1.77-1.5 1.25l-3.23-2.1c-.34-.22-.76-.22-1.1 0l-3.23 2.1c-.9.52-1.78-.21-1.5-1.25l1.04-3.7c.28-.48.14-1.17-.22-1.48l-2.8-2.37c-.76-.61-.37-1.76.58-1.76h3.58c.4 0 .76-.28.95-.67l1.54-3.35z">
+                                    </path>
+                                </svg>
+                            </span>
+                            <span class="text-gray-700 font-medium">Award-Winning Quality Assurance</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. CREDIBILITY GALLERY SECTION (FIXED WITH DIRECT LINKS) -->
+        <section id="gallery" class="py-8 sm:py-12 bg-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-extrabold text-center mb-6 text-gray-900">
+                    Awards & Project Highlights Gallery
+                </h2>
+                <p class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-6">
+                    Proof of dedication: A selection of images highlighting official recognition,
+                    awards received, and key project site visits throughout a nearly 40-year career.
+                </p>
+
+                <!-- Styles applied inline to section 6 for visibility -->
+                <style>
+                    .gallery-item {
+                        overflow: hidden;
+                        border-radius: 0.5rem;
+                        background-color: #ffffff;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 180px;
+                        /* Fixed height for consistent sizing */
+                    }
+
+                    .gallery-item img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        transition: transform 0.3s ease;
+                    }
+
+                    .gallery-item img:hover {
+                        transform: scale(1.05);
+                    }
+                </style>
+
+                <!-- Responsive Photo Grid (3x3 matrix) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
+
+                    
+                                        <div class="gallery-item">
+                        <img src="https://github.com/sabs-27/images/blob/main/1%20(2).jpg?raw=true" alt="Award Photo 2">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://github.com/sabs-27/images/blob/main/1%20(3).jpg?raw=true" alt="Shield Award">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://github.com/sabs-27/images/blob/main/1%20(4).jpg?raw=true" alt="Dedication Ceremony">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://github.com/sabs-27/images/blob/main/1%20(5).jpg?raw=true" alt="Official Event">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://github.com/sabs-27/images/blob/main/1%20(6).jpg?raw=true" alt="Project Site 1">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://github.com/sabs-27/images/blob/main/1%20(7).jpg?raw=true" alt="Project Highlight 2">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://github.com/sabs-27/images/blob/main/1%20(8).jpg?raw=true" alt="Award Moment 2">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://github.com/sabs-27/images/blob/main/1%20(9).jpg?raw=true" alt="Executive Consulting">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://github.com/sabs-27/images/blob/main/1%20(10).jpg?raw=true" alt="Project Recognition">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://github.com/sabs-27/images/blob/main/1%20(11).jpg?raw=true" alt="Site Visit">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://github.com/sabs-27/images/blob/main/1%20(12).jpg?raw=true" alt="Professional Achievement">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://github.com/sabs-27/images/blob/main/1%20(13).JPG?raw=true" alt="Award Ceremony">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://github.com/sabs-27/images/blob/main/1%20(14).JPG?raw=true" alt="Project Excellence">
+                    </div>
+
+                
+            </div>
+        </section>
+
+
+        <!-- 8. CONTACT CTA SECTION -->
+        <section id="contact" class="py-12 bg-gray-900">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h2 class="text-4xl sm:text-5xl font-extrabold text-white mb-6">Ready to Elevate Your Project?</h2>
+                <p class="text-xl text-gray-300 mb-10">
+                    Discuss your project's unique challenges directly with E.N. Rao. Specialized expertise is just a
+                    conversation away.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="mailto:contact@enraoconsulting.com"
+                        class="inline-block px-8 py-3 bg-teal-600 text-white text-lg font-medium rounded-full hover:bg-teal-700 transition shadow-lg shadow-teal-500/50">
+                        Schedule a Consultation
+                    </a>
+                    <a href="tel:+919999999999"
+                        class="inline-block px-8 py-3 border border-gray-400 text-gray-200 text-lg font-medium rounded-full hover:bg-gray-800 transition">
+                        Call Us Today
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-10 bg-gray-100 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-500">
+            <p class="mb-4">&copy; 2025 E. N. Rao Consulting. All rights reserved. | Executive Engineer Retd.</p>
+            <div class="space-x-4">
+                <a href="#expertise" class="hover:text-teal-600">Expertise</a>
+                <a href="#phases" class="hover:text-teal-600">Portfolio Overview</a>
+                <a href="#details" class="hover:text-teal-600">Detailed Services</a>
+                <a href="#gallery" class="hover:text-teal-600">Gallery</a>
+                <a href="#about" class="hover:text-teal-600">The Expert</a>
+            </div>
+            <!-- Mock Email/Phone - Replace with actual data -->
+            <p class="mt-4 text-xs">Email: contact@enraoconsulting.com | Phone: +91 99999 99999</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
